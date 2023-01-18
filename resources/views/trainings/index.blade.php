@@ -28,7 +28,7 @@
                 <div class="box-header with-border">
                         <div class="alert alert-info clearfix">
                             <a href="{{ route('training.create') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-end">{{ __(' Add Training Information') }}</button></a> 
-                            <a href="{{ route('report.excel') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-start">{{ __('TO EXCEL') }}</button></a>
+                            <a href="{{ route('report.excel') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-sm-start">{{ __('TO EXCEL') }}</button></a>
                             <a href="{{ route('report.pdf') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-middle">{{ __('TO PDF') }}</button></a>
                         </div>
                      </div>
