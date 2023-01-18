@@ -41,7 +41,7 @@
                                                 <label>Island Name:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{{$island['name']}}</p>
+                                                <p>{{$island['island_name']}}</p>
                                             </div>
                                         </div>
                                  

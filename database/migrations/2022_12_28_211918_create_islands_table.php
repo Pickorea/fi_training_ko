@@ -15,7 +15,7 @@ class CreateIslandsTable extends Migration
     {
         Schema::create('islands', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('island_name');
             $table->timestamps();
         });
     }

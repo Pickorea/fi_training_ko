@@ -41,7 +41,7 @@
                                                             <div class="alert alert-danger">
                                                                {{ session()->get('error') }}
                                                             </div>
-                                                         @endif
+                                                             @endif
                                                    
                                                    </div>
                                                    <div class="form-group col-md-6">

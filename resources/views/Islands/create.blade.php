@@ -2,83 +2,30 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card card-new-task">
-                <div class="card-header"></div>
-                <div class="card-body">
-                <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
+         <div class="row justify-content-center mt-0">
+          <div class="col-lg-8">
+          <div class="box-header with-border">
+           <h3 class="box-title">{{ __('ENTER ISLAND DETAILS') }}</h3>   
+         </div>
+          <form method="POST" enctype="multipart/form-data" id="upload-file" action="{{ route('island.store') }}" >
+             @csrf
+              <div class="row gx-5">
+               
+                <div class="form-group col-md-12">
+                  <label for="island_name" class="fg-grey">Island Name</label>
+                  <input type="text" class="form-control" id="island_name" placeholder="Island" name="island_name" value="{{@old('island_name')}}"> 
+                  @if($errors->any())
+                      {!! implode('', $errors->all('<div>:message</div>')) !!}
+                  @endif
+                </div>
               
-
-                    <!-- Main content -->
-                    <section class="content">
-                        <!-- Default box -->
-                        <div class="box">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">{{ __('ENTER ISLANDS DETAILS') }}</h3>
-
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-                                </div>
-                            </div>
-                            <div class="box-body">
-                            <form method="POST" enctype="multipart/form-data" id="upload-file" action="{{ route('island.store') }}" >
-                                                                    @csrf
-                                       
-                                          <div class="box-body">
-                                          <h4 class="box-title text-info"> SECTION A</h4>
-                                                <hr class="my-15">
-                                                <div class="row">
-                                               
-                                                   <div class="form-group col-md-6">
-                                                      <label for="name"><span class="text-danger">*</span>Island Name</label>
-                                                   
-                                                            <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" id="name" placeholder="Enter a Island Name:" name="name" autocomplete="off">
-                                                           @if(session()->has('error'))
-                                                            <div class="alert alert-danger">
-                                                               {{ session()->get('error') }}
-                                                            </div>
-                                                         @endif
-                                                   
-                                                   </div>
-                                                  
-                                                   
-                                               
-
-                                          <!-- /.box-body -->
-                                          <div class="box-footer text-right">
-                                                <button type="submit" class="btn btn-primary btn-outline">
-                                                   <i class="ti-save-alt"></i> Save
-                                                </button>
-                                                <a class="btn btn-warning btn-outline mr-1" href="">
-                                                   <i class="ti-trash"></i> Cancel
-                                                </a>
-                                          </div>
-                                          <!-- /.box-footer -->
-                                       </form>
-                                       </div>
-                                                   <!-- /.box-body -->
-                                                </div>
-                                                <!-- /.box -->
-                                          </section>
-                                          <!-- /.content -->
-
-                                       </div>
-                                    </div>
-                              </div>
-                           </div>
-
-                        </div>
-
-                       
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        
+                <div class="col-12 mt-3">
+                  <button type="submit" class="btn btn-primary px-3">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    
 @endsection
    

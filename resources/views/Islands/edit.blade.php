@@ -17,7 +17,7 @@
                         <!-- Default box -->
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">{{ __('EDIT ISLANDS DETAILS') }}</h3>
+                                <h3 class="box-title">{{ __('EDIT ISLAND DETAILS') }}</h3>
 
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
@@ -33,14 +33,14 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">                              
                                        
                                            <!-- new input -->
-                                           <h4 class="box-title text-info"> ISLANDS EDITION:</h4>
+                                           <h4 class="box-title text-info"> ISLAND EDITION:</h4>
                                                 <hr class="my-15">
                                                 <div class="row">
                                                
                                                    <div class="form-group col-md-6">
-                                                      <label for="island"><span class="text-danger">*</span> Island Name</label>
+                                                      <label for="island_name"><span class="text-danger">*</span> Island Name</label>
                                                    
-                                                            <input type="text" class="form-control {{ $errors->has('island') ? ' is-invalid' : '' }}" value="{{$island['name']}}" id="island" placeholder="Enter a Emergency Contact" name="name" autocomplete="off">
+                                                            <input type="text" class="form-control {{ $errors->has('island_name') ? ' is-invalid' : '' }}" value="{{$island['name']}}" id="island_name" placeholder="Enter a Emergency Contact" name="island_name" autocomplete="off">
                                                            @if(session()->has('error'))
                                                             <div class="alert alert-danger">
                                                                {{ session()->get('error') }}

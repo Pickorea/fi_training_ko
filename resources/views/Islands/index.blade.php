@@ -6,9 +6,9 @@
 <div class="content-wrapper">
 
     <section class="content-header">
-        <h1>
+        <!-- <h1>
             {{ __('Island') }}
-        </h1>
+        </h1> -->
          <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/home') }}">Dashboard</a></li>
@@ -25,9 +25,9 @@
             <div class="box-header with-border">
                 <h3 class="box-title">{{ __('Manage Island') }}</h3>
 
-                <div class="box-header with-border">
-                        <div class="alert alert-info clearfix">
-                            <a href="{{ route('island.create') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-end">{{ __(' Add Island') }}</button></a> 
+                <div class="box-body">
+                        <div >
+                            <a href="{{ route('island.create') }}" class="breadcrumb-item btn btn-primary btn-sm float-end">{{ __(' Add Island') }}</a> 
                         </div>
                      </div>
             </div>
@@ -73,7 +73,7 @@
                             <td>{{ $sl++ }}</td>
                      
                             
-                            <td>{{ $island['name'] }}</td>
+                            <td>{{ $island['island_name'] }}</td>
                             
                         
                             <td class="text-center">{{ date("d F Y", strtotime($island['created_at'])) }}</td>

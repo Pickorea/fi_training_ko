@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Requests\IslandStoreRequest;
+use App\Http\Requests\IslandUpdateRequest;
 use App\Models\Island;
 
 class IslandController extends Controller
@@ -41,14 +43,15 @@ class IslandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IslandStoreRequest $request)
     {
             $input = $request->all();
+            // dd($input);
         
             $results = Island::create($input);
 
 
-        return redirect()->route('island.index')->with('exception', 'Operation failed !');
+        return redirect()->route('island.index');
     }
 
     /**
@@ -84,7 +87,7 @@ class IslandController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(IslandUpdateRequest $request, $id)
     {
         // $island = $request->all();
      
