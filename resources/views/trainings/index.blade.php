@@ -27,9 +27,19 @@
 
                 <div class="box-header with-border">
                         <div class="alert alert-info clearfix">
-                            <a href="{{ route('training.create') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-end">{{ __(' Add Training Information') }}</button></a> 
+                            <a href="{{ route('training.create') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-sm-end">{{ __(' Add Training Information') }}</button></a> 
                             <a href="{{ route('report.excel') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-sm-start">{{ __('TO EXCEL') }}</button></a>
-                            <a href="{{ route('report.pdf') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-middle">{{ __('TO PDF') }}</button></a>
+                            <a href="{{ route('report.pdf') }}" class="alert-link"><button type="button" class="btn btn-primary btn-sm float-sm-none">{{ __('TO PDF') }}</button></a>
+                            <div class="d-flex p-2 bd-highlight">I'm a flexbox container!</div>
+                            <div class="d-flex flex-row bd-highlight mb-3">
+                            <div class="p-2 bd-highlight">Flex item 1</div>
+                            <div class="p-2 bd-highlight">Flex item 2</div>
+                            <div class="p-2 bd-highlight">Flex item 3</div>
+                            <div class="d-flex flex-row-reverse bd-highlight">
+  <div class="p-2 bd-highlight">Flex item 1</div>
+  <div class="p-2 bd-highlight">Flex item 2</div>
+  <div class="p-2 bd-highlight">Flex item 3</div>
+</div>
                         </div>
                      </div>
             </div>
