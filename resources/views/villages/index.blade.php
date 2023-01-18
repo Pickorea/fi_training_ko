@@ -7,7 +7,7 @@
 
     <section class="content-header">
         <h1>
-            {{ __('village') }}
+            {{ __('Village') }}
         </h1>
          <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -60,7 +60,8 @@
                     <thead>
                         <tr>
                             <th>{{ __(' SL#') }}</th>
-                            <th>{{ __('village Name') }}</th>
+                            <th>{{ __('Island Name') }}</th>
+                            <th>{{ __('Village Name') }}</th>
                             <th>{{ __(' Created At') }}</th>
                             <th class="text-center">{{ __('Actions') }}</th>
                         </tr>

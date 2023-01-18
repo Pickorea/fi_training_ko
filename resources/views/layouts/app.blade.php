@@ -7,9 +7,7 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>KI Fisheries IMS</title>
-
-  <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
+   <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
   
   <link rel="stylesheet" href="{{asset('assets/css/maicons.css')}}">
 
@@ -210,7 +208,7 @@
       </div> <!-- .page-section -->
   
   </div>
-   
+        @stack('custom-scripts')
   </main>
 
   <footer class="page-footer">
