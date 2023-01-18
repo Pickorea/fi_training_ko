@@ -8,9 +8,7 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>Revetive - Free Business Corporate Template By MACode ID</title>
-
-  <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
+   <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
   
   <link rel="stylesheet" href="{{asset('assets/css/maicons.css')}}">
 
