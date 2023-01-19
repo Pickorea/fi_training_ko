@@ -93,7 +93,7 @@ class IslandController extends Controller
     {
         // $island = $request->all();
      
-        $data = Island::where('uuid', $uuid)->update($request->all());
+        $data = Island::find($uuid)->update($request->all());
 
 
            return redirect()->route('island.index')->with('message', 'Updated successfully.');
