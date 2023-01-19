@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Island;
 use Illuminate\Http\Request;
 use App\Models\Village;
+use Illuminate\Support\Str;
 
 class VillageController extends Controller
 {
@@ -46,9 +47,12 @@ class VillageController extends Controller
      */
     public function store(Request $request)
     {
-            $input = $request->all();
-        
-            $results = village::create($input);
+            
+            $results = village::create([
+                'uuid'=> Str::uuid(),
+                'island_id'=>$request->island_id,
+                'village_name'=>$request->village_name,
+                'village_description'=>$request->village_description]);
 
 
         return redirect()->route('village.index');
