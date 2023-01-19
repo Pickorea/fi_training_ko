@@ -2,13 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\IslandController;
-use App\Http\Controllers\TrainingController;
-use App\Http\Controllers\TrainingTypeController;
-use App\Http\Controllers\VillageController;
+use App\Http\Controllers\Training\IslandController;
+use App\Http\Controllers\Training\TrainingController;
+use App\Http\Controllers\Training\TrainingTypeController;
+use App\Http\Controllers\Training\VillageController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\ReportController;
-use App\Http\Controllers\ChartController;
+use App\Http\Controllers\Training\ChartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

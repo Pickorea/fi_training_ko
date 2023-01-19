@@ -1,5 +1,6 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Training;
+use App\Http\Controllers\Controller;
 use App\Charts\ExpensesChart;
 use Illuminate\Http\Request;
 class ChartController extends Controller

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Training;
+use App\Http\Controllers\Controller;
 
-use App\Models\Island;
+use App\Models\Training\Island;
 use App\Models\Village;
 use Illuminate\Http\Request;
-use App\Models\Training;
+use App\Models\Training\Training;
 use App\Models\TrainingType;
 use App\Models\TrainingDetail;
 use DB;

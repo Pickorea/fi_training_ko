@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Training;
+use App\Http\Controllers\Controller;
 
-use App\Models\Island;
+use App\Models\Training\Island;
 use Illuminate\Http\Request;
-use App\Models\Village;
-use Illuminate\Support\Str;
+use App\Models\Training\TrainingType;
 
-class VillageController extends Controller
+class TrainingTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +17,11 @@ class VillageController extends Controller
     public function index()
     {
         
-        $villages = Village::all();
+        $trainingTypes = TrainingType::all();
         //dd($employees);
 
         // Pass data to view
-        return view('villages.index', ['villages' => $villages]);
+        return view('trainingTypes.index', ['trainingTypes' => $trainingTypes]);
 
         //return 'welcome'; //view('employees.index');
     }
@@ -34,9 +34,9 @@ class VillageController extends Controller
     public function create()
     {
 
-        $islands = Island::all()->toArray();
+        $trainingTypes = TrainingType::all()->toArray();;
         // dd($islands);
-        return view('villages.create')->withIslands($islands);
+        return view('trainingTypes.create')->withTrainingTypes($trainingTypes);
     }
 
     /**
@@ -47,15 +47,12 @@ class VillageController extends Controller
      */
     public function store(Request $request)
     {
-            
-            $results = village::create([
-                'uuid'=> Str::uuid(),
-                'island_id'=>$request->island_id,
-                'village_name'=>$request->village_name,
-                'village_description'=>$request->village_description]);
+            $input = $request->all();
+        
+            $results = TrainingType::create($input);
 
 
-        return redirect()->route('village.index');
+        return redirect()->route('training_type.index');
     }
 
     /**
@@ -64,13 +61,12 @@ class VillageController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show($uuid)
+    public function show($id)
     {
-        $village = village::where('uuid',$uuid)->firstOrFail();
-       
-		return view('villages.show')
-	        ->with('village',$village);
-          //;
+        $trainingType = TrainingType::find($id);
+
+		return view('trainingTypes.show')
+	        ->with('trainingType',$trainingType);
     }
 
     /**
@@ -79,13 +75,10 @@ class VillageController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit($uuid)
+    public function edit($id)
     {
-        $village = village::where('uuid',$uuid)->firstOrFail();
-        $islands = Island::all()->toArray();
-      
-		return view('villages.edit')->withVillage($village)
-        ->withIslands($islands);
+        $trainingType = TrainingType::find($id);
+		return view('trainingTypes.edit')->withtrainingType($trainingType);
     }
 
     /**
@@ -95,14 +88,14 @@ class VillageController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $uuid)
+    public function update(Request $request, $id)
     {
-        // $village = $request->all();
+        // $trainingType = $request->all();
      
-        $data = Village::find($uuid)->update($request->all());
+        $data = TrainingType::find($id)->update($request->all());
 
 
-           return redirect()->route('village.index')->with('message', 'Updated successfully.');
+           return redirect()->route('training_type.index')->with('message', 'Updated successfully.');
     }
 
     /**

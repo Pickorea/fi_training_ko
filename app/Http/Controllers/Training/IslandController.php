@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\Island;
+namespace App\Http\Controllers\Training;
+use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use Illuminate\Http\Request;
-use App\Models\Training;
-use App\Models\TrainingDetail;
-use App\Models\TrainingType;
+use App\Http\Requests\IslandStoreRequest;
+use App\Http\Requests\IslandUpdateRequest;
+use App\Models\Training\Island;
+use Illuminate\Support\Str;
 
-class TrainingDetailController extends Controller
+class IslandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +19,11 @@ class TrainingDetailController extends Controller
     public function index()
     {
         
-        $trainings = TrainingDetail::all();
-        //dd($employees);
+        $islands = Island::all();
+        // dd($islands );
 
         // Pass data to view
-        return view('training_details.index', ['trainings' => $trainings]);
+        return view('islands.index', ['islands' => $islands]);
 
         //return 'welcome'; //view('employees.index');
     }
@@ -34,11 +35,7 @@ class TrainingDetailController extends Controller
      */
     public function create()
     {
-
-        $islands = Island::all()->toArray();
-        $types =   TrainingType::all()->toArray();
-        // dd($types);
-        return view('training_details.create')->withIslands($islands)->withTypes($types);
+        return view('islands.create');
     }
 
     /**
@@ -49,12 +46,13 @@ class TrainingDetailController extends Controller
      */
     public function store(Request $request)
     {
-            $input = $request->all();
-        
-            $results = Training::create($input);
+                   
+            $results = Island::create([
+                'island_name'=>$request->island_name,
+                'uuid'=>Str::uuid()]);
 
 
-        return redirect()->route('training_detail.index');
+        return redirect()->route('island.index');
     }
 
     /**
@@ -63,12 +61,12 @@ class TrainingDetailController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($uuid)
     {
-        $training_details = TrainingDetail::find($id);
+        $island = Island::where('uuid',$uuid)->firstOrFail();
 
-		return view('training_details.show')
-	        ->with('training',$training_details);
+		return view('islands.show')
+	        ->with('island',$island);
     }
 
     /**
@@ -77,10 +75,11 @@ class TrainingDetailController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($uuid)
     {
-        $training = Training::find($id);
-		return view('training_details.edit')->withTraining($training);
+         $island = Island::where('uuid',$uuid)->firstOrFail();
+        //  dd($island['uuid']);
+		return view('islands.edit')->withIsland($island);
     }
 
     /**
@@ -90,14 +89,14 @@ class TrainingDetailController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $uuid)
     {
-        // $Training = $request->all();
+        // $island = $request->all();
      
-        $data = Training::find($id)->update($request->all());
+        $data = Island::find($uuid)->update($request->all());
 
 
-           return redirect()->route('training_detail.index')->with('message', 'Updated successfully.');
+           return redirect()->route('island.index')->with('message', 'Updated successfully.');
     }
 
     /**
@@ -106,7 +105,7 @@ class TrainingDetailController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Employee $employee)
     {
         //
     }
