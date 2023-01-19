@@ -20,7 +20,7 @@ class IslandController extends Controller
     {
         
         $islands = Island::all();
-        dd($islands );
+        // dd($islands );
 
         // Pass data to view
         return view('islands.index', ['islands' => $islands]);
@@ -63,7 +63,7 @@ class IslandController extends Controller
      */
     public function show($uuid)
     {
-        $island = Island::where('uuid',$uuid)->get();
+        $island = Island::where('uuid',$uuid)->firstOrFail();
 
 		return view('islands.show')
 	        ->with('island',$island);
@@ -77,8 +77,8 @@ class IslandController extends Controller
      */
     public function edit($uuid)
     {
-         $island = Island::where('uuid',$uuid)->get();
-        //  dd($island);
+         $island = Island::where('uuid',$uuid)->firstOrFail();
+        //  dd($island['uuid']);
 		return view('islands.edit')->withIsland($island);
     }
 
@@ -89,7 +89,7 @@ class IslandController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(IslandUpdateRequest $request, $uuid)
+    public function update(Request $request, $uuid)
     {
         // $island = $request->all();
      

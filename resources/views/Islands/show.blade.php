@@ -17,7 +17,8 @@
                 <div class="col-lg-7">
                     <div class="mb-4">
                     <form method="post">
-                    <a  class="d-inline-block text-primary text-uppercase " href="{{route('island.edit',$island)}}">Edit Island Profile</a>
+                        
+                    <a  class="d-inline-block text-primary text-uppercase " href="{{route('island.edit',$island['uuid'])}}">Edit Island Profile</a>
                     <h3>Island-Info</h3>
                     </form>
                     </div>
