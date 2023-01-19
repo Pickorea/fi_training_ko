@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\IslandStoreRequest;
 use App\Http\Requests\IslandUpdateRequest;
 use App\Models\Island;
+use Illuminate\Support\Str;
 
 class IslandController extends Controller
 {
@@ -43,12 +44,12 @@ class IslandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(IslandStoreRequest $request)
+    public function store(Request $request)
     {
-            $input = $request->all();
-            // dd($input);
-        
-            $results = Island::create($input);
+                   
+            $results = Island::create([
+                'island_name'=>$request->island_name,
+                'uuid'=>Str::uuid()]);
 
 
         return redirect()->route('island.index');
