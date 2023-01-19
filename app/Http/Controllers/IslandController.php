@@ -20,7 +20,7 @@ class IslandController extends Controller
     {
         
         $islands = Island::all();
-        //dd($employees);
+        dd($islands );
 
         // Pass data to view
         return view('islands.index', ['islands' => $islands]);
@@ -61,9 +61,9 @@ class IslandController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($uuid)
     {
-        $island = Island::find($id);
+        $island = Island::where('uuid',$uuid)->get();
 
 		return view('islands.show')
 	        ->with('island',$island);
@@ -75,9 +75,10 @@ class IslandController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($uuid)
     {
-        $island = island::find($id);
+         $island = Island::where('uuid',$uuid)->get();
+        //  dd($island);
 		return view('islands.edit')->withIsland($island);
     }
 
@@ -88,11 +89,11 @@ class IslandController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(IslandUpdateRequest $request, $id)
+    public function update(IslandUpdateRequest $request, $uuid)
     {
         // $island = $request->all();
      
-        $data = Island::find($id)->update($request->all());
+        $data = Island::where('uuid', $uuid)->update($request->all());
 
 
            return redirect()->route('island.index')->with('message', 'Updated successfully.');
