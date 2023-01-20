@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Training;
 use App\Http\Controllers\Controller;
+
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Requests\IslandStoreRequest;
 use App\Http\Requests\IslandUpdateRequest;
 use App\Models\Training\Island;
+
 use Illuminate\Support\Str;
 
 class IslandController extends Controller
@@ -20,7 +22,7 @@ class IslandController extends Controller
     {
         
         $islands = Island::all();
-        // dd($islands );
+        //dd($employees);
 
         // Pass data to view
         return view('islands.index', ['islands' => $islands]);
@@ -46,10 +48,13 @@ class IslandController extends Controller
      */
     public function store(Request $request)
     {
-                   
-            $results = Island::create([
-                'island_name'=>$request->island_name,
-                'uuid'=>Str::uuid()]);
+        $input = [
+            'uuid'=> Str::uuid(),
+			'island_name'=> $request->island_name,
+        ] ;
+            
+        
+            $results = Island::create($input);
 
 
         return redirect()->route('island.index');
@@ -77,8 +82,7 @@ class IslandController extends Controller
      */
     public function edit($uuid)
     {
-         $island = Island::where('uuid',$uuid)->firstOrFail();
-        //  dd($island['uuid']);
+        $island = Island::where('uuid',$uuid)->firstOrFail();
 		return view('islands.edit')->withIsland($island);
     }
 
@@ -89,9 +93,9 @@ class IslandController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $uuid)
+    public function update(IslandUpdateRequest $request, $uuid)
     {
-        // $island = $request->all();
+       
      
         $data = Island::find($uuid)->update($request->all());
 

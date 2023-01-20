@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Village;
+use App\Models\Training\Village;
 use Illuminate\Support\Str;
 
 class VillageSeeder extends Seeder
