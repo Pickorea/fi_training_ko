@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Training;
 use App\Http\Controllers\Controller;
 
 use App\Models\Training\Island;
-use App\Models\Village;
+use App\Models\Training\Village;
 use Illuminate\Http\Request;
 use App\Models\Training\Training;
-use App\Models\TrainingType;
-use App\Models\TrainingDetail;
+use App\Models\Training\TrainingType;
+use App\Models\Training\TrainingDetail;
 use DB;
 
 class TrainingController extends Controller
